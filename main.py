@@ -26,7 +26,7 @@ parameters = {
 
 
 response = requests.get(url=url, params=parameters)
-response.raise_for_status
+response.raise_for_status()
 weather_data = response.json()
 # print(weather_data)
 will_rain = False
@@ -43,6 +43,15 @@ if will_rain:
             from_=twilio_phone,
             to=to_phone,
         )
+else:
+    client= Client(twilio_ac_id, twilio_auth_token)
+    message = client.messages \
+        .create(
+            body="Sunshine, Enjoy the Summer",
+            from_=twilio_phone,
+            to=to_phone,
+        )
+            
        
-print(message.status)    
+
 
