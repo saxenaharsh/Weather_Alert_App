@@ -2,7 +2,7 @@ name: Daily Weather Alert
 
 on:
   schedule:
-    - cron: "30 2 * * *"   # 8:00 AM India time daily
+    - cron: "30 2,14 * * *"   # 8:00 AM India time daily
 
   workflow_dispatch:
 
